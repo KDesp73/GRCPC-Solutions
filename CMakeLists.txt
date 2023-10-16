@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(YourProjectName)
+project(GRCPCSolutions)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 14)
@@ -11,11 +11,15 @@ include_directories(include)
 # Add your source files
 set(SOURCES
     src/main.cpp
+
+	# src/problem1/problem1_v0.cpp
+	src/problem1/problem1_v1.cpp
 )
 
 # Add your header files
 set(HEADERS
-    include/header.h
+    include/problems.h
+    include/timer.h
 )
 
 set(TESTS
