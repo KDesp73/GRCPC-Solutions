@@ -1,5 +1,4 @@
-// Time: 0.144505milliseconds for 5 inputs
-// Time: 24.08 minutes for 10^7 inputs
+// Time: 1.3 minutes for 10^7 inputs
 
 #include "problems.h"
 #include <cstdio>
