@@ -14,6 +14,7 @@ set(SOURCES
 
 	# src/problem1/problem1_v0.cpp
 	src/problem1/problem1_v1.cpp
+	src/problem2/problem2.cpp
 )
 
 # Add your header files

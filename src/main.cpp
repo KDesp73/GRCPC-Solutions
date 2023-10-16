@@ -27,7 +27,7 @@ std::string readFileToString(const std::string& filename) {
 }
 
 void temp() {
-	GRCPCProblems::problem1(readFileToString("/home/konstantinos/personal/repos/cpp/GRCPC_Solutions/samples/p1.txt"));
+	GRCPCProblems::problem2(readFileToString("/home/konstantinos/personal/repos/cpp/GRCPC_Solutions/samples/p2.txt"));
 }
 
 int main(int argc, char **argv){
