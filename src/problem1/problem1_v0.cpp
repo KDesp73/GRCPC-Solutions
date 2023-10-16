@@ -1,5 +1,3 @@
-// Time: ~9.40791889 years for 10^7 inputs
-
 #include "problems.h"
 #include <cstdio>
 #include <iostream>

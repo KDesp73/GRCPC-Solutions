@@ -1,9 +1,11 @@
-// Time: ~9.40791889 years for 10^7 inputs
+// Time: 0.144505milliseconds for 5 inputs
+// Time: 24.08 minutes for 10^7 inputs
 
 #include "problems.h"
 #include <cstdio>
 #include <iostream>
 #include <sstream>
+#include <utility>
 #include <vector>
 #include <string>
 #include <cmath>
@@ -17,31 +19,27 @@ struct Coords {
 	double y;
 };
 
-vector<Coords> getCoords(int size){
+std::vector<std::string> splitString(const std::string& input, char del) {
+    std::vector<std::string> lines;
+    std::istringstream stream(input);
+    std::string line;
+
+    while (std::getline(stream, line, del)) {
+        lines.push_back(line);
+    }
+
+    return lines;
+}
+
+vector<Coords> getCoords(vector<string> input, int size){
 	vector<Coords> coords_list;
 
-	for(int i = 0; i < size; i++){
-		string input, str;
-		getline(cin, input);
-
-		stringstream ss(input);
+	for(int i = 1; i < size+1; i++){
 		Coords coords;
-		for (int i = 0; getline(ss, str, ' '); i++) {
-			switch (i) {
-				case 0:
-					coords.id = str;
-					break;
-				case 1:
-					coords.x = stod(str);
-					break;
-				case 2:
-					coords.y = stod(str);
-					break;
-				default:
-					break;
-			}	
-		}
-		coords_list.push_back(coords);
+
+		vector<string> args = splitString(input[i], ' ');
+		
+		coords_list.push_back(Coords{args[0], stod(args[1]), stod(args[2])});
 	}
 
 	return coords_list;
@@ -51,25 +49,40 @@ bool isDominated(Coords c1, Coords c2){
 	return (c1.x < c2.x && c1.y < c2.y);
 }
 
+pair<int, vector<Coords>> parseInput(string input){
+	vector<string> lines = splitString(input, '\n');
 
-void GRCPCProblems::problem1(){
-	string size_str;
-	getline(cin, size_str);
-	int size = stoi(size_str);
+	int size = stoi(lines.at(0));
 
-	vector<Coords> coords_list = getCoords(size);
+	return pair<int, vector<Coords>>(size, getCoords(lines, size));
+}
+
+
+void GRCPCProblems::problem1(string input){
+	pair<int, vector<Coords>> p = parseInput(input);
+
+	int size = p.first;
+	vector<Coords> coords_list = p.second;
 
 	vector<string> passed_ids;
+	vector<bool> isDominatedByAny(size, false);
+
 	for (int i = 0; i < size; i++) {
-		for(int j = 0; j < size; j++) {
-			if(i == j) continue;
-			if(isDominated(coords_list.at(i), coords_list.at(j))){
-				goto next;	
-			} 
+		if (isDominatedByAny[i]) {
+			continue;
 		}
-		passed_ids.push_back(coords_list.at(i).id);
-next:
-		continue;
+
+		for (int j = 0; j < size; j++) {
+			if (i == j) continue;
+			if (isDominated(coords_list[i], coords_list[j])) {
+				isDominatedByAny[i] = true;
+				break;
+			}
+		}
+
+		if (!isDominatedByAny[i]) {
+			passed_ids.push_back(coords_list[i].id);
+		}
 	}	
 
 	sort(passed_ids.begin(), passed_ids.end());

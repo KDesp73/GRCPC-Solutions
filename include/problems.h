@@ -1,12 +1,16 @@
 #pragma once
 
+#include <string>
+
+using namespace std;
+
 namespace GRCPCProblems {
-	void problem1();
-	void problem2();
-	void problem3();
-	void problem4();
-	void problem5();
-	void problem6();
-	void problem7();
-	void problem8();
+	void problem1(string input);
+	void problem2(string input);
+	void problem3(string input);
+	void problem4(string input);
+	void problem5(string input);
+	void problem6(string input);
+	void problem7(string input);
+	void problem8(string input);
 };
