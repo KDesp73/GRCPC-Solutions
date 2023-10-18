@@ -12,7 +12,7 @@ include_directories(include)
 set(SOURCES
     src/main.cpp
 
-	src/problem1/problem1_v0.cpp
+	src/problem1/problem1.cpp
 	src/problem2/problem2.cpp
 	src/problem1/utils.cpp
 )

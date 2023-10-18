@@ -14,31 +14,14 @@
 using namespace std;
 
 
-
-std::string readFileToString(const std::string& filename) {
-	std::ifstream file(filename);
-	if (!file.is_open()) {
-		std::cerr << "Error: Unable to open the file." << std::endl;
-		return "";
-	}
-
-	// Read the entire file into a string
-	std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
-	file.close();
-
-	return content;
-}
-
-void temp() {
+void wrapper() {
 	GRCPCProblems::problem1();
 }
 
 int main(int argc, char **argv){
-	double executionTime = timeFunction(temp);
-
+	double executionTime = timeFunction(wrapper);
 	cout << "Execution time: " << executionTime << "milliseconds" << endl;
-
-
+	
 	return 0;
 }
 
