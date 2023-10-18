@@ -1,8 +1,8 @@
-samples/p1.txt
-
 # Directories
+samples/
 build/
 .cache/
+
 # Prerequisites
 *.d
 
