@@ -14,10 +14,12 @@ set(SOURCES
 
 	src/problem1/problem1_v0.cpp
 	src/problem2/problem2.cpp
+	src/problem1/utils.cpp
 )
 
 # Add your header files
 set(HEADERS
+	src/problem1/utils.h
     include/problems.h
     include/timer.h
 )
