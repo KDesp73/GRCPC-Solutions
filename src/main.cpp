@@ -3,14 +3,17 @@
 #include <cstdlib>
 #include <ctime>
 #include <set>
-
-#include "problems.h"
-#include "timer.h"
 #include <fstream>
 #include <streambuf>
 #include <iostream>
 
+#include "problems.h"
+#include "timer.h"
+#include "problem1/utils.h"
+
 using namespace std;
+
+
 
 std::string readFileToString(const std::string& filename) {
 	std::ifstream file(filename);
@@ -31,10 +34,10 @@ void temp() {
 }
 
 int main(int argc, char **argv){
+	
 	double executionTime = timeFunction(temp);
 
 	cout << "Execution time: " << executionTime << "milliseconds" << endl;
-
 
 	return 0;
 

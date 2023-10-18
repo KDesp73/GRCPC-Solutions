@@ -1,12 +1,13 @@
+// Run with: {cat ./samples/p1.txt} | ./build/GRCPCSolutions
+
 // For 10^5 inputs: 145.334milliseconds
-// For 10^7 inputs: 14.53seconds 
+// For 10^7 inputs: 17197.1milliseconds 
 
 #include "problems.h"
 #include <cstdio>
 #include <iostream>
 #include <sstream>
 #include <vector>
-// #include <string>
 #include <cmath>
 #include <bits/stdc++.h>
 
@@ -26,8 +27,6 @@ vector<Coords> getCoords(int size){
 		Coords coords;
 		scanf("%s %lf %lf", coords.id, &coords.x, &coords.y);
 		coords_list.push_back(coords);
-		
-		// cout << coords.id << " " << coords.x<< " " << coords.y << endl;
 	}
 
 	return coords_list;
