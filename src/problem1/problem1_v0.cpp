@@ -1,5 +1,5 @@
-// For 10^5 inputs: 157.76milliseconds
-// For 10^7 inputs: ~15.7seconds
+// For 10^5 inputs: 145.334milliseconds
+// For 10^7 inputs: 14.53seconds 
 
 #include "problems.h"
 #include <cstdio>
@@ -42,7 +42,7 @@ void GRCPCProblems::problem1(){
 	int size;
 	scanf("%d", &size);
 
-	vector<Coords> coords_list(size);
+	vector<Coords> coords_list;
 
 	for(int i = 0; i < size; i++){
 		Coords coords;
@@ -50,7 +50,7 @@ void GRCPCProblems::problem1(){
 		coords_list.push_back(coords);
 	}
 
-	vector<string> passed_ids(size);
+	vector<string> passed_ids;
 	vector<bool> isDominatedByAny(size, false);
 
 
