@@ -5,6 +5,7 @@
 using namespace std;
 
 namespace GRCPCProblems {
+	void problem1();
 	void problem1(string input);
 	void problem2(string input);
 	void problem3(string input);

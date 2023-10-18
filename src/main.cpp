@@ -27,17 +27,17 @@ std::string readFileToString(const std::string& filename) {
 }
 
 void temp() {
-	GRCPCProblems::problem2(readFileToString("/home/konstantinos/personal/repos/cpp/GRCPC_Solutions/samples/p2.txt"));
+	GRCPCProblems::problem1();
 }
 
 int main(int argc, char **argv){
-	/**/
 	double executionTime = timeFunction(temp);
 
 	cout << "Execution time: " << executionTime << "milliseconds" << endl;
 
 
 	return 0;
+
 }
 
 

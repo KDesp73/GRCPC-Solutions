@@ -1,45 +1,33 @@
+// For 10^5 inputs: 157.76milliseconds
+// For 10^7 inputs: ~15.7seconds
+
 #include "problems.h"
 #include <cstdio>
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include <string>
+// #include <string>
 #include <cmath>
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>
+
 
 using namespace std;
 
 struct Coords {
-	string id;
 	double x;
 	double y;
+	char id[20];
 };
 
 vector<Coords> getCoords(int size){
 	vector<Coords> coords_list;
 
 	for(int i = 0; i < size; i++){
-		string input, str;
-		getline(cin, input);
-
-		stringstream ss(input);
 		Coords coords;
-		for (int i = 0; getline(ss, str, ' '); i++) {
-			switch (i) {
-				case 0:
-					coords.id = str;
-					break;
-				case 1:
-					coords.x = stod(str);
-					break;
-				case 2:
-					coords.y = stod(str);
-					break;
-				default:
-					break;
-			}	
-		}
+		scanf("%s %lf %lf", coords.id, &coords.x, &coords.y);
 		coords_list.push_back(coords);
+		
+		// cout << coords.id << " " << coords.x<< " " << coords.y << endl;
 	}
 
 	return coords_list;
@@ -51,34 +39,49 @@ bool isDominated(Coords c1, Coords c2){
 
 
 void GRCPCProblems::problem1(){
-	string size_str;
-	getline(cin, size_str);
-	int size = stoi(size_str);
+	int size;
+	scanf("%d", &size);
 
-	vector<Coords> coords_list = getCoords(size);
+	vector<Coords> coords_list(size);
 
-	vector<string> passed_ids;
+	for(int i = 0; i < size; i++){
+		Coords coords;
+		scanf("%s %lf %lf", coords.id, &coords.x, &coords.y);
+		coords_list.push_back(coords);
+	}
+
+	vector<string> passed_ids(size);
+	vector<bool> isDominatedByAny(size, false);
+
+
 	for (int i = 0; i < size; i++) {
-		for(int j = 0; j < size; j++) {
-			if(i == j) continue;
-			if(isDominated(coords_list.at(i), coords_list.at(j))){
-				goto next;	
-			} 
+		if (isDominatedByAny[i]) {
+			continue;
 		}
-		passed_ids.push_back(coords_list.at(i).id);
-next:
-		continue;
-	}	
+
+		for (int j = 0; j < size; j++) {
+			if (i == j) continue;
+			if ((coords_list[i].x < coords_list[j].x && coords_list[i].y < coords_list[j].y)) {
+				isDominatedByAny[i] = true;
+				break;
+			}
+		}
+
+		if (!isDominatedByAny[i]) {
+			passed_ids.push_back(coords_list[i].id);
+		}
+	}
 
 	sort(passed_ids.begin(), passed_ids.end());
 
 
 	for (size_t i = 0; i < passed_ids.size(); i++) {
-		std::cout << passed_ids[i];
+		std::cout << passed_ids.at(i);
 
 		if (i < passed_ids.size() - 1) {
 			std::cout << " ";
 		}
 	}
+
 	cout << endl;
 }
