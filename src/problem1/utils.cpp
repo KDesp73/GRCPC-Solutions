@@ -13,7 +13,7 @@
 
 using namespace std;
 
-std::string generateRandomID(int length) {
+std::string UtilsOne::generateRandomID(int length) {
     const std::string charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // You can modify this to include other characters
     std::string id;
     for (int i = 0; i < length; ++i) {
@@ -22,7 +22,7 @@ std::string generateRandomID(int length) {
     return id;
 }
 
-void generateRandomData(int size){
+void UtilsOne::generateRandomData(int size, string filename){
     std::srand(static_cast<unsigned>(std::time(nullptr)));
 
     // Number of inputs in the new sample
@@ -30,7 +30,7 @@ void generateRandomData(int size){
     int idLength = 7; // Set the desired length of the ID
 
     // Create an output file stream to write the data to a file
-    std::ofstream outputFile("/home/konstantinos/personal/repos/cpp/GRCPC_Solutions/samples/p1.txt");
+    std::ofstream outputFile("/home/konstantinos/personal/repos/cpp/GRCPC_Solutions/samples/" + filename);
 
     if (!outputFile.is_open()) {
         std::cerr << "Failed to open the output file." << std::endl;

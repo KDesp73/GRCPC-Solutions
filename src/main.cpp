@@ -34,13 +34,12 @@ void temp() {
 }
 
 int main(int argc, char **argv){
-	
 	double executionTime = timeFunction(temp);
 
 	cout << "Execution time: " << executionTime << "milliseconds" << endl;
 
-	return 0;
 
+	return 0;
 }
 
 

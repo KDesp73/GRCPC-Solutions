@@ -25,7 +25,6 @@ set(HEADERS
 )
 
 set(TESTS
-    tests/test.cpp
 )
 
 # Add an executable target
