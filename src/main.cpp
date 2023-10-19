@@ -15,7 +15,7 @@ using namespace std;
 
 
 void wrapper() {
-	GRCPCProblems::problem3();
+	GRCPCProblems::problem2();
 }
 
 int main(int argc, char **argv){
