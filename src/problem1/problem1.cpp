@@ -1,6 +1,6 @@
-// Run with: {cat ./samples/p1.txt} | ./build/GRCPCSolutions
+// Run with: {cat ./samples/p1-10000000.txt} | ./build/GRCPCSolutions
 
-// For 10^7 inputs: 14503.2milliseconds < 15seconds
+// For 10^7 inputs:  12834.6milliseconds < 15seconds
 
 #include "problems.h"
 #include <cstddef>
@@ -36,8 +36,7 @@ void GRCPCProblems::problem1(){
 
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
-			if (i == j) continue;
-			if (coords_list[i].x < coords_list[j].x && coords_list[i].y < coords_list[j].y) {
+			if ((i != j) && coords_list[i].x < coords_list[j].x && coords_list[i].y < coords_list[j].y) {
 				isDominatedByAny[i] = true;
 				break;
 			}		
@@ -49,7 +48,6 @@ void GRCPCProblems::problem1(){
 	}
 
 	sort(passed_ids.begin(), passed_ids.end());
-
 
 	for (string id : passed_ids) {
 		printf("%s ", id.c_str());
