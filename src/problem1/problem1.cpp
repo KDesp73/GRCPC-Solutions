@@ -1,7 +1,6 @@
 // Run with: {cat ./samples/p1.txt} | ./build/GRCPCSolutions
 
-// For 10^5 inputs: 145.334milliseconds
-// For 10^7 inputs: 16792.5milliseconds
+// For 10^7 inputs: 14503.2milliseconds
 
 #include "problems.h"
 #include <cstddef>
@@ -48,12 +47,13 @@ void GRCPCProblems::problem1(){
 			passed_ids.push_back(coords_list[i].id);
 		}
 	}
+
 	sort(passed_ids.begin(), passed_ids.end());
 
 
-	for (size_t i = 0; i < passed_ids.size(); i++) {
-		std::cout << passed_ids.at(i) << " ";
+	for (string id : passed_ids) {
+		printf("%s ", id.c_str());
 	}
 
-	cout << endl;
+	printf("\n");
 }
