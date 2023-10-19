@@ -16,6 +16,7 @@ set(SOURCES
 
 	src/problem1/problem1.cpp
 	src/problem2/problem2.cpp
+	src/problem2/problem3.cpp
 	src/problem1/utils.cpp
 )
 
