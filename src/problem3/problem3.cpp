@@ -10,10 +10,10 @@ void GRCPCProblems::problem3(){
 
 	while (getchar() != '\n');
 
-    char passed_lessons[passed_size][100]; // Assuming a maximum string length of 99 characters
+    char passed_lessons[passed_size][20]; // Assuming a maximum string length of 99 characters
 
     for (int i = 0; i < passed_size; i++) {
-        scanf("%99s", passed_lessons[i]);
+        scanf("%19s", passed_lessons[i]);
     }
 	
 	int required_size;
@@ -21,10 +21,10 @@ void GRCPCProblems::problem3(){
 
 	while (getchar() != '\n');
 
-    char required_lessons[required_size][100]; // Assuming a maximum string length of 99 characters
+    char required_lessons[required_size][20]; // Assuming a maximum string length of 99 characters
 
     for (int i = 0; i < required_size; i++) {
-        scanf("%99s", required_lessons[i]);
+        scanf("%19s", required_lessons[i]);
     }
 	
 	int found = 0;
