@@ -1,6 +1,6 @@
 // Run with: {cat ./samples/p1.txt} | ./build/GRCPCSolutions
 
-// For 10^7 inputs: 14503.2milliseconds
+// For 10^7 inputs: 14503.2milliseconds < 15seconds
 
 #include "problems.h"
 #include <cstddef>
