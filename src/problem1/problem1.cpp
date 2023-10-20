@@ -15,8 +15,8 @@
 using namespace std;
 
 struct Coords {
-	double x;
-	double y;
+	float x;
+	float y;
 	char id[20];
 };
 
@@ -27,7 +27,7 @@ void GRCPCProblems::problem1(){
 	vector<Coords> coords_list;
 	for(int i = 0; i < size; i++){
 		Coords coords;
-		scanf("%s %lf %lf", coords.id, &coords.x, &coords.y);
+		scanf("%s %f %f", coords.id, &coords.x, &coords.y);
 		coords_list.push_back(coords);
 	}
 
@@ -35,8 +35,9 @@ void GRCPCProblems::problem1(){
 	vector<bool> isDominatedByAny(size, false);
 
 	for (int i = 0; i < size; i++) {
+		Coords iCoords = coords_list[i];
 		for (int j = 0; j < size; j++) {
-			if ((i != j) && coords_list[i].x < coords_list[j].x && coords_list[i].y < coords_list[j].y) {
+			if (iCoords.x < coords_list[j].x && iCoords.y < coords_list[j].y && (i!=j)) {
 				isDominatedByAny[i] = true;
 				break;
 			}		
